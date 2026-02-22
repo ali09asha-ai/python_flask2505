@@ -1,0 +1,34 @@
+{# The DS2505 Login/Sign-in page #}
+{# Inherit the code from the template #}
+{% extends 'base.html' %}
+{# Specify the page title #}
+{% block page_title %} Login {% endblock page_title %}
+{% block page_heading %}
+   Login/Sign-in Page
+{% endblock %}
+
+{% block page_content %}
+   {# TODO: Add flask massage for failed login #}
+   {# Login Form #}
+   <form id="frmLogin" method="POST" action="">
+      {{ form.hidden_tag() }}
+      <fieldset>
+         <legend>Login Details</legend>
+         <div class="mb-3">
+            {{ form.email.label(class="form-label") }}
+            {{ form.email(class="form-control", placeholder="me@email.com") }}
+         </div>
+          <div class="mb-3">
+            {{ form.password.label(class="form-label") }}
+            {{ form.password(class="form-control", placeholder="secret password") }}
+         </div>
+      </fieldset>
+      <br/>
+      <div class="mb-3">
+          {{ form.submit(class="btn btn-primary") }}
+      </div>
+   </form>
+   <div>
+      <p>Don&rsquo;t have an account? <a href="#">Register/Sign-up</a></p>
+  </div>
+{% endblock %}
